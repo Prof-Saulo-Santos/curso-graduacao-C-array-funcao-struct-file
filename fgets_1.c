@@ -4,8 +4,9 @@ int main(){
     int idade;
 
     //Entrada   
-    printf("Digite seu primeiro nome(digite um nome composto com mais de 10 caracteres): ");
+    printf("Digite nome e sobrenome: ");
     scanf("%s", nome);
+
     printf("Digite sua idade: ");
     scanf("%d", &idade);
     

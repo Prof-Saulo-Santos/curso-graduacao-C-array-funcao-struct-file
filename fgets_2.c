@@ -5,7 +5,7 @@ int main(){
     int idade;
 
     //Entrada
-    printf("Digite seu nome: ");
+    printf("Digite nome e sobrenome: ");
     fgets(nome, 10, stdin); // Lê uma linha inteira contendo espaços no máximo até 49 caracteres.
     nome[strcspn(nome, "\n")] = '\0'; // Encontra a posição do '\n' e substitui pelo caractere nulo '\0'
     printf("Digite sua idade: ");

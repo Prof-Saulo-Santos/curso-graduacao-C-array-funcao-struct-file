@@ -5,7 +5,7 @@ int main(){
     int idade;
 
     //Entrada
-    input_s("Digite o nome: ",nome,sizeof(nome)); 
+    input_s("Digite nome e sobrenome: ",nome,sizeof(nome)); 
     idade =  input_d("Digite a idade: "); 
 
     //Saída

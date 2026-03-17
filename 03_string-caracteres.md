@@ -62,7 +62,7 @@ int main(){
     int idade;
 
     //Entrada   
-    printf("Digite seu primeiro nome(digite um nome composto com mais de 10 caracteres): ");
+    printf("Digite nome e sobrenome: ");
     scanf("%s", nome);
     printf("Digite sua idade: ");
     scanf("%d", &idade);
@@ -83,7 +83,7 @@ int main(){
     int idade;
 
     //Entrada
-    printf("Digite seu nome: ");
+    printf("Digite nome e sobrenome: ");
     fgets(nome, 10, stdin); // Lê uma linha inteira contendo espaços no máximo até 49 caracteres.
     nome[strcspn(nome, "\n")] = '\0'; // Encontra a posição do '\n' e substitui pelo caractere nulo '\0'
     printf("Digite sua idade: ");
@@ -98,7 +98,7 @@ int main(){
 
 **No entanto, ainda temos que esvaziar o buffer de entrada! (abra: fgets_3.c)**
 ```c
-#include <string.h> // Necessário para a função strcspn
+#include <string.h> 
 #include <stdio.h>
 int main(){
     char nome[10];
@@ -106,21 +106,23 @@ int main(){
     int lixo;
 
     //Entrada
-    printf("Digite seu nome: ");
-    fgets(nome, 10, stdin); // Lê uma linha inteira contendo espaços no máximo até 49 caracteres.
-    nome[strcspn(nome, "\n")] = '\0'; // Encontra a posição do '\n' e substitui pelo caractere nulo '\0'
-    while ((lixo = getchar()) != '\n' && lixo != '\r' && lixo != EOF); //limpa o buffer de entrada
+    printf("Digite nome e sobrenome: ");
+    fgets(nome, 10, stdin);
+    if (strchr(nome, '\n') == NULL)     
+       while ((lixo = getchar()) != '\n' && lixo != '\r' && lixo != EOF);
+    nome[strcspn(nome, "\n")] = '\0'; 
+
     printf("Digite sua idade: ");
-    scanf("%d", &idade); // scanf recolhe o lixo de entrada e impede digitação da idade.
+    scanf("%d", &idade); 
 
     //Saída
     printf("Nome: %s\n", nome);
     printf("Idade: %d\n", idade);
-    return 0;
+    return 0;    
 }
 ```
 
-# Solução usando a biblioteca pss.h (abra: fgets_4.c)
+# Solução usando pss.h/pss.c (abra: fgets_4.c)
 ```c
 #include "pss.h"
 #include <stdio.h>
@@ -129,7 +131,7 @@ int main(){
     int idade;
 
     //Entrada
-    input_s("Digite o nome: ",nome,sizeof(nome)); 
+    input_s("Digite nome e sobrenome: ",nome,sizeof(nome)); 
     idade =  input_d("Digite a idade: "); 
 
     //Saída
