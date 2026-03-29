@@ -1,0 +1,50 @@
+Funções de string para utilizar na Linguagem C
+----------------------------------------------
+1-strlen: A função strlen serve para contar quantos caracteres existem em uma string em C.
+strlen percorre a string até encontrar o caractere especial \0 (que marca o final da string) e conta quantos caracteres existem antes dele.
+
+2-puts: Equivalente a um printf com \n automático no final
+Ex puts(nome);
+
+3-#include <string.h>: Necessário para a função strcspn
+
+4-fgets: Lê uma linha inteira contendo espaços no máximo até 49 caracteres.
+OBS: fgets armazena a quebra de linha '\n' enviada pelo 'Enter' no array!
+Ex: fgets(nomeCompleto, 50, stdin);
+
+5-strcspn: Encontra a posição do '\n' e substitui pelo caractere nulo '\0'
+Ex: nome[strcspn(nome, "\n")] = '\0';
+
+6-toupper: Converte as letras do array original para maiúsculas
+Ex: toupper(str[i]);
+
+7-tolower: A função tolower serve para converter um caractere para minúsculo.
+Ex: tolower(letra);
+
+8-strcpy: Copia a primeira string no destino
+Ex: strcpy(destino, "Ola, ");
+
+9-strcat: Concatena a segunda string
+Ex: strcat(destino, nome);
+
+10-#include <stdlib.h>: Para malloc() e free()
+
+11-malloc: Aloca memória dinamicamente no espaço Heap.
+Ex: char *resultado = (char*) malloc(50 * sizeof(char)); 
+
+12-free: Importante liberar a memória para evitar vazamento (memory leak)
+Ex: printf("%s\n", mensagem);    
+    free(mensagem);
+
+13-strcmp: Em C, você não pode usar o operador == para comparar se duas strings têm o mesmo conteúdo. 
+O operador == compararia apenas os endereços de memória dos vetores, e não os textos.
+Para comparar o conteúdo de duas strings, utilizamos a função strcmp() (String Compare) da biblioteca <string.h>.
+Ex:if (strcmp(senhaCorreta, senhaDigitada) == 0) {
+        printf("Acesso Permitido!\n");
+    } else {
+        printf("Senha Incorreta!\n");
+    }
+A função strcmp(XXX, YYY) não retorna true ou false. Ela retorna um inteiro com este significado:
+  0	As strings são iguais
+< 0	A primeira string é menor que a segunda
+> 0	A primeira string é maior que a segunda
